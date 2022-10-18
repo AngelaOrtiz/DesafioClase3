@@ -1,6 +1,6 @@
 import code
 import random
-from numpy import append, unicode_
+from numpy import append, identity, unicode_
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
@@ -43,10 +43,10 @@ for i in range (0,len(comunas)):
 objeto=json.dumps(jsonData)
 print(objeto)
 
-#falta guardar como json
+#Guardar como json
 #objeto.to_json("Conteo.json")
-#
-#
+with open("jsonData.json","w",encoding="utf-8") as j:
+    j.write(json.dumps(jsonData,indent=2))
 
 #Asigna aleatoriamente horarios a los puntos de carga
 horario = ["09:00 - 13:00, 14:00 -19:00","08:00 - 13:30, 14:30 -21:00","08:30 - 13:30, 15:00 -20:00","09:30 - 13:00, 15:00 -22:00","10:00 - 13:00, 14:00 -24:00"]
