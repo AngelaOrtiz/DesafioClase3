@@ -1,4 +1,5 @@
 import code
+import encodings
 import random
 from numpy import NaN, append, identity, unicode_
 import pandas as pd
@@ -7,7 +8,7 @@ import matplotlib.pyplot as plt
 from pyparsing import str_type
 
 #Lee Excel, desde la fila que corresponde
-bip = pd.read_excel("carga-bip.xlsx", header=9)
+bip = pd.read_excel("carga-bip.xlsx", header=9, encodings="utf-8")
 
 #Filtrar datos
 #Obtener solo los datos de las columnas: CODIGO, NOMBRE FANTASIA
@@ -40,9 +41,9 @@ for r in comunas:
 jsonData={}
 for i in range (0,len(comunas)):
     jsonData[comunas[i]]=conteo[i]
-#print(jsonData)
-objeto=json.dumps(jsonData)
-print(objeto)
+print(jsonData)
+objeto=json.dumps(jsonData,encoding="utf-8")
+#print(objeto)
 
 #Guardar como json
 #objeto.to_json("Conteo.json")
