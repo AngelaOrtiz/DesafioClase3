@@ -1,6 +1,6 @@
 import code
 import random
-from numpy import append, identity, unicode_
+from numpy import NaN, append, identity, unicode_
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
@@ -25,8 +25,9 @@ listaComuna=df['COMUNA'].to_list()
 comunas=[]
 for n in listaComuna:
     if n not in comunas:
-        comunas.append(n)
-#print(comunas)
+        if n is not NaN:
+            comunas.append(n)
+print(comunas)
 
 #Conteo de puntos de carga por comuna
 conteo=[]
